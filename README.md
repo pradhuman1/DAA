@@ -1,7 +1,7 @@
 # DAA
 ## Group Members
 * Tauhid Alam           - BIM2015003
-* Harsh Mahajan         - IIB2019002
+* Harsh Mahajan         - IIB2019001
 * Pradhuman Singh Baid  - IIB2019002   
 
 ## Mentor
