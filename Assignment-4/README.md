@@ -35,7 +35,7 @@ cd Assignment-4
 
 Run the code
 ```
-g++ question1.cpp
+g++ solution.cpp
 ./a.out
 ```
 Output
@@ -52,7 +52,7 @@ NO, the integer : 'x' did't appear more than n/2 times
 Test Case-1
 Input:
 6
-124444
+1 2 4 4 4 4
 4
 Output:
 Yes
@@ -60,7 +60,7 @@ Yes
 Test Case-2
 Input:
 5
-13345
+1 3 3 4 5
 3
 Output:
 No
