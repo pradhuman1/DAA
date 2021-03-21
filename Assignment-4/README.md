@@ -99,7 +99,7 @@ k = log(n)
 
 <br>
 <br>
-Therefore, Time complexity is O(nlog(n))
+Therefore, Time complexity is O(log(n))
 <br>
 
 **Space Complexity**

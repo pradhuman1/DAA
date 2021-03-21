@@ -1,4 +1,4 @@
-# Assignment-1
+# Assignment-4
 
 **Team Members**
 |   Enrollment No.  |   Name   | GithubId |
@@ -99,7 +99,7 @@ k = log(n)
 
 <br>
 <br>
-Therefore, Time complexity is O(nlog(n))
+Therefore, Time complexity is O(log(n))
 <br>
 
 
