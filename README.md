@@ -7,7 +7,7 @@
 |    IIB2019002  |   Harsh Mahajan | harsh-8989 | 
 |    BIM2015003  |   Tauhid Alam |   |
 
-**Group No-**"8"
+**Group No-**"1"
 
 **Faculty Name-**"Dr. Rahul Kala"
 
