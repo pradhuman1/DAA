@@ -5,7 +5,7 @@
 |   --------------  |   ----   | -------- |
 |    IIB2019001  |   Pradhuman Singh Baid | pradhuman1 |
 |    IIB2019002  |   Harsh Mahajan | harsh-8989 | 
-|    BIM2015003  |   Tauhid Alam |   |
+|    BIM2015003  |   Tauhid Alam | bim2015003 |
 
 **Group No-**"1"
 
@@ -35,7 +35,7 @@ cd Assignment-4
 
 Run the code
 ```
-g++ question1.cpp
+g++ solution.cpp
 ./a.out
 ```
 Output
@@ -93,8 +93,8 @@ In the problem we need to find weather a given integer x in appearing more than 
 In this algorithm at each iteration the array is divided by 2. Suppose length of array is n and after K iteration the length of array becomes 1 and then we get<br><br>
 (n/2)^k=1 <br>
 n = 2^k <br>
-log(n) = log(2k) <br>
-log(n) = klog(4) <br>
+log(n) = log(2^k) <br>
+log(n) = klog(2) <br>
 k = log(n)
 
 <br>
