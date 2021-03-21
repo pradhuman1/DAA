@@ -1,0 +1,138 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{titlesec}
+
+\usepackage{textcomp}
+\usepackage{epsfig}
+\usepackage{algpseudocode}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\pgfplotsset{width=10cm,compat=1.9}
+ \usepgfplotslibrary{external}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\usepackage[ruled,vlined]{algorithm2e}
+
+\tikzexternalize 
+\begin{document}
+
+\title{ Check weather an integer repeated more than n/2 times in sorted array\\
+\text{\Large{DAA ASSIGNMENT-4 , GROUP 1}}
+}
+\author{\IEEEauthorblockN{Harsh Mahajan}
+\IEEEauthorblockA{ \text{IIB2019001}}
+\and
+\IEEEauthorblockN{Pradhuman Singh Baid}
+\IEEEauthorblockA{ \text{IIB2019002}}
+\and
+\IEEEauthorblockN{Tauhid Alam}
+\IEEEauthorblockA{ \text{BIM2015003}}
+}
+
+\maketitle
+
+\begin{abstract}
+This Paper contains the algorithm to find if a given integer x appears more than n/2 times in a sorted array of n integers. Divide and conquer approach is taken to solve it.
+\end{abstract}
+
+\section{Introduction}
+Divide and conquer is the way of solving a problem by dividing the problem into smaller subproblems.
+
+It is a technique in which the main problem is divided into smaller subproblems and then solving the smaller subproblems and combining them to find the solution of the problem.
+
+In this paper, we have to find if a given integer x appears more than n/2 times in a sorted array of n integers
+
+
+\section{Algorithmic Design}
+
+In the problem we need to find weather a given integer x in appearing more than n/2 times in a sorted array or not.Efficiently this problem can be solved using binary search which is a divide and conquer algorithm.
+
+First We divided the array in two parts and checked the middle element.
+If this element is greater than or equal the integer x then we would focus on the left sub-array otherwise right sub-array.
+
+Now, The size of focused sub-array is reduced to half of original array.
+
+And then we will recursively apply this approach on the focused array until its size is reduced to 1. 
+
+When the size of resultant array is '1' it means that we are on the index where the integer x appeared 1st time. 
+Let name that index as 'left'.
+
+Now,we need to check weather it appeared more than n/2 times or not.For that we would add n/2 to 'left' and name the result 'right'.As it is provided that array is sorted and if 'x' appeared more than n/2 times then it must also present at index 'right'.
+
+And finally we will print the result according to its presence on index 'right'.
+
+
+% Continue.....
+
+\section{Pseudo Code}
+\\
+
+   Array ← sorted array of size n\\\
+   target ← Target integer 'x' \\\
+   
+   solve function  \\
+   \indent
+   \hspace{0.5 cm}
+    long long int mid ← middleEl  \\
+    \indent \hspace{0.5 cm}
+    long long int left ← 0  \\
+    \indent \hspace{0.5 cm}
+    long long int mid ← n  \\
+    \indent \hspace {0.5cm}
+    while left \textless right  \\
+    \indent \hspace{1cm}
+        mid = left + (left+right)/2  \\
+        \indent \hspace{1cm}
+        if (target \textless= Array[mid]) \\ 
+        \indent \hspace{1.5 cm} right = mid \\ 
+        \indent \hspace{1cm}
+        else \\
+        \indent \hspace{1.5 cm} left = mid + 1\\
+        
+    \indent \hspace {0.5cm} right = left + n/2 \\
+    \indent \hspace {0.5cm} if(Array[right]=target) \\
+    \indent \hspace{1cm} PRINT "YES" \\
+    \indent \hspace {0.5cm} else \\
+    \indent \hspace{1cm} PRINT NO \\  
+    
+main function \\
+\indent \hspace{0.5 cm} call solve function \\ 
+end procedure
+% Continue.....
+
+\section{Complexity Analysis}
+
+\subsection{Time Complexity}\\
+In this algorithm at each iteration the array is divided by 2. Suppose length of array is n and after K iteration the length of array becomes 1 and then we get\\
+n/2^{k} = 1\\
+n = 2^{k}\\
+log(n) = log(2^{k})\\
+log(n) = klog(4)\\
+k=log(n)\\
+
+Therefore, Time complexity is O(nlog(n))\\
+
+\includegraphics[width=3.5in,height=2.5in]{logn.png}
+
+\subsection{Space Complexity}\\
+In this method, the space complexity would be O(n) as we have used an array of size n and some variables of constant space.  \\
+
+Therefore, Space complexity is O(n)\\
+
+\section{Conclusion}
+Through this assignment we conclude that fastest way to find an element is using divide and conquer alogrithm.
+\section{REFERENCES}
+\textit{https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm }\\
+\textit{https://www.geeksforgeeks.org/divide-and-conquer-algorithm-i}\\
+\end{document}
