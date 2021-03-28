@@ -47,19 +47,24 @@ g++ solution.cpp
 ```
 Test Case-1
 Input:
-6
-1 2 4 4 4 4
-4
+3 2
+0 0
 Output:
-Yes
+0.0625
 #--------------------------#
 Test Case-2
 Input:
-5
-1 3 3 4 5
-3
+8 3
+0 0
 Output:
-No
+0.125
+#--------------------------#
+Test Case-3
+Input:
+8 1
+0 0
+Output:
+0.250
 ```
 
 ---
