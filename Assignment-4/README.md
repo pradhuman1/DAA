@@ -38,12 +38,6 @@ Run the code
 g++ solution.cpp
 ./a.out
 ```
-Output
-```
-YES, the integer : 'x' Appears more than n/2 times
-or
-NO, the integer : 'x' did't appear more than n/2 times
-```
 ---
 
 **Test case**
