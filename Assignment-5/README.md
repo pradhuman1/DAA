@@ -110,8 +110,7 @@ So Time complexity would be O(n^2×k)
 
 **Space Complexity**
 
-The size of dp array is n× n and some constant variables
-are used.
+The size of parentBoard and childBoard vectors is  n× n and some constant variables are used.
 <br>
 <br>
 Therefore, Space complexity is O(n^2)
