@@ -35,7 +35,12 @@ cd Assignment-6
 
 Run the code
 ```
-g++ solution.cpp
+Approach 1
+g++ approach1.cpp
+./a.out
+
+Approach 2
+g++ approach2.cpp
 ./a.out
 ```
 ---
@@ -123,11 +128,7 @@ So the above approach would be log(M)<br><br>
 
 **Space Complexity**
 
-The size of parentBoard and childBoard vectors is  n× n and some constant variables are used.
-<br>
-<br>
-Therefore, Space complexity is O(n^2)
-<br>
+We not storing anything so space complexity is almost constant<br><br>
 
 ---
 
