@@ -29,7 +29,7 @@ git clone https://github.com/pradhuman1/DAA.git
 Project Initialize 
 ```
 cd DAA
-cd Assignment-2
+cd Assignment-6
 ```
 ---
 
