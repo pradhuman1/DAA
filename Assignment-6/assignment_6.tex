@@ -1,0 +1,242 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+% The preceding line is only needed to identify funding in the first footnote. If that is unneeded, please comment it out.
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{algorithmic}% http://ctan.org/pkg/algorithms
+
+\usepackage{textcomp}
+\usepackage{epsfig}
+\usepackage{algpseudocode}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\pgfplotsset{width=10cm,compat=1.9}
+ \usepgfplotslibrary{external}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter{\floor}{\lfloor}{\rfloor}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+\usepackage[ruled,vlined]{algorithm2e}
+
+\tikzexternalize 
+\begin{document}
+
+\title{ Find Stepping Numbers in range [n,m]\\
+\text{\Large{DAA ASSIGNMENT-6 , GROUP 20}}
+}
+\author{\IEEEauthorblockN{Harsh Mahajan}
+\IEEEauthorblockA{ \text{IIB2019001}}
+\and
+\IEEEauthorblockN{Pradhuman Singh Baid}
+\IEEEauthorblockA{ \text{IIB2019002}}
+\and
+\IEEEauthorblockN{Vasu Gupta}
+\IEEEauthorblockA{ \text{IIB2019003}}
+}
+
+\maketitle
+
+\begin{abstract}
+This Paper contains the algorithm to find all the stepping numbers in range [n, m]. A number is
+called stepping number, if all adjacent digits have an absolute difference of 1. 321 is a
+Stepping Number while 421 is not.
+\end{abstract}
+
+
+\section{Introduction}
+A number is called stepping number if all adjacent digits have an absolute difference of 1.\\
+A Queue is a linear structure which follows a particular order in which the operations are performed. The order is First In First Out (FIFO).\\
+\section{Algorithmic Design}
+
+\subsection{ \textbf{Approach 1}}
+\\1. Its a brute force approach
+
+2. Iterate over all number between [n,m] and checking number is stepping number or not.
+
+3. Iterate through all digits of x and compare difference between value of previous and current digits, if difference \textgreater{}1 or \textless{}-1 then its not stepping number otherwise storing x in answer.
+
+4. Print all number in answer which are stepping numbers between n and m.
+
+\subsection{ \textbf{Approach 2}}
+\\1. This approach is based on graph traversing bfs.
+
+2. We are using the fact that single digit number is stepping number.
+
+3. Then we are generating graph as follow .
+
+4. Every node in the graph represents a stepping number. there will be a directed edge from a node U to V if V can be transformed from U.
+
+5. An adjacent number V can be:  
+U*10 + lastDigit + 1 (Neighbor A)
+U*10 + lastDigit – 1 (Neighbor B)
+
+6. then checking if node value is between n and m. which means this node is required stepping number and storing it into answer array.
+
+7. Print all number in answer which are stepping numbers between n and m.
+
+
+\newline
+\begin{algorithm}
+    \caption{Finding Stepping Numbers}
+    \KwIn{ n, m}
+    \KwOut {Prints Stepping numbers in [n,m]}
+    \DontPrintSemicolon
+    \SetKwFunction{FMain}{SteppingNumbers}
+    \SetKwProg{Fn}{Function}{:}{}
+    \Fn{\FMain{$n$,$m$}}{
+        
+        
+        \\
+        \For{$i \gets n$ \textbf{ to } $m$}
+        {
+            \STATE $flag \gets 1;$\\
+        	\STATE $prevd \gets -1;$\\
+            \STATE $j \gets i;$\\
+            \While{j \textgreater{} 0}
+            {
+            	\STATE $cur \gets j \% 10;$
+                \\
+                \If{ prev = -1}
+                {
+            		\STATE $prev \gets cur;$
+   
+        		}
+                \\
+                \Else
+                {
+                	\If { abs(prev-cur) != 1 }
+                    {
+                    	\STATE $flag \gets 0;$
+                        \\break;
+                    }
+                }
+                \STATE $prev \gets cur; $
+                \\
+                \STATE $j \gets j  /  10;$
+            }
+            \If { flag = 1 }
+            {
+            	print i;
+            }
+            
+           
+         }
+            
+ 
+
+    }
+\end{algorithm}
+
+
+
+\begin{algorithm}
+     \caption{Finding Stepping Numbers}
+    \KwIn{n, m, num }
+    \KwOut {Prints Stepping numbers between n and m inclusive}
+    \DontPrintSemicolon
+    \SetKwFunction{FMain}{SteppingNumbers}
+    \SetKwProg{Fn}{Function}{:}{}
+    \Fn{\FMain{$n$, $m$, $num$}}{
+        queue \textless{}int\textgreater{} q;\\
+        q.push(num);\\
+       \While{$\displaystyle!{q}.{e}{m}{p}{t}{y}{()}$}{
+  			\STATE $stepNum \gets q.front(); $
+            \\
+            q.pop();
+            \\
+            \If{ stepNum\textless{}=m and stepNum\textgreater{}=n }{
+            		print stepNum;
+            }
+			\If{num=0 or stepNum\textgreater{} m}
+            {
+            	continue;
+            }
+            \STATE $lastDigit \gets stepNum\%10;$\\
+            \STATE $stepNumA \gets stepNum\times 10 + (lastDigit-1);$\\
+			  \STATE $stepNumB \gets stepNum\times 10+(lastDigit+1);$
+              
+              
+              \If{lastDigit= 0}
+              {
+              	q.push(stepNumB);
+             }\\
+             else \If{lastDigit=9}{
+             	q.push(stepNumA);
+             } 
+             
+             \Else
+             {
+             	q.push(stepNumA);\\
+                q.push(stepNumB);
+             }
+            
+ }
+      }
+ 
+\end{algorithm}
+
+\newpage
+
+\section{Algorithm Analysis}
+
+\subsection{\textbf{Approach 1}} 
+
+\\For each number,to check that it is stepping number can be checked in some number of operation which is equivalent to constant time.since we are checking all numbers between n to m therefore execution time is \varpropto \[\displaystyle{m-n}\] .
+So the time complexity will be. O(m-n)
+
+\subsection{\textbf{Approach 2}} 
+\\ During bfs,once we encounter a number 'x' from the queue which is greater or equal to M, we don't need to push its stepping numbers in the queue as they will obviously again be greater than M. this gives you an upper bound. Now we are creating sort of 9 trees with root [1,9] respectively. 
+for each node of the tree the the next child node has a number obtained after a multiplication factor of 10, mean taking jumps in powers of 10, which means a logarithmic sol with an upper bound M.so the number of nodes in the tree has to be log(M) moreover as its a tree number of edges are V-1, so the above approach would be log(M).
+
+\section{Experimental study}
+\begin{flushleft}
+\begin{tikzpicture}[trim left=0cm]
+\begin{axis}[
+    title={Time Complexity of Approach 1 },
+    xlabel={Value of k = m - n },
+    ylabel={Time taken in(ms)},
+    xmin=0, xmax=100000,
+    ymin=0, ymax=0.0030,
+    xtick={0,10000,20000,30000,40000,50000,60000,700000,80000,90000,100000},
+    ytick={0,0.0010,0.0020,0.0030}
+]
+
+\addplot[
+    color=blue,
+    mark=square,
+    ]
+    coordinates {
+    (0,0)(10000,0.000246)(20000,0.000477)(30000,0.000757)(40000,0.000860)(50000,0.001125)(60000,0.001269)(70000,0.001372)
+    (80000,0.001561)(90000,0.001777)(100000,0.002246)
+    };
+    \legend{$\displaystyle{O}{\left({k}\right)}$ algorithm}
+   \end{axis}
+   
+\end{tikzpicture}
+\end{flushleft}
+\newpage
+Time Complexity for Approach 2
+\includegraphics[width=3.5in,height=2.5in]{logn.png}
+
+\section{Space Complexity}\\
+We not storing anything so space complexity is almost constant
+
+
+\section{Conclusion}
+Above two methods have different time complexities and meet to fulfill the problem statement. The order in which they are good can be listed as:
+\\I. Approach 2
+\\II. Approach 1
+\\Based on the time complexities.
+\section{REFERENCES}\\
+\textit{1) 'Queue-Data-Structures',Wikipedia}\\
+\textit{2) 'Breadth First Search',GeeksforGeeks}\\
+\textit{3) Chirag Agarwal,'Stepping Numbers',GeeksforGeeks,2020}
+\end{document}
+
