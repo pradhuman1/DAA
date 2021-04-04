@@ -1,4 +1,4 @@
-# Assignment-05
+# Assignment-06
 
 **Team Members**
 |   Enrollment No.  |   Name   | GithubId |
@@ -82,27 +82,28 @@ Output:
 
 ### Theory
 
-**Dynamic Programming**
+**Breadth First search**
 
 Breadth-first search is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root, and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level
 
-**Algorithm Analysis**
-1) One thing that we can observe is that at every step
-the Knight has 8 choices to choose from. Suppose, the
-Knight has to take k steps and after taking the Kth step
-the knight reaches (x,y). There are 8 different positions
-from where the Knight can reach to (x,y) in one step,
-and they are: (x+1,y+2), (x+2,y+1), (x+2,y-1), (x+1,y2), (x-1,y-2), (x-2,y-1), (x-2,y+1), (x-1,y+2).<br>
-2) The final probability after K steps will simply be equal
-to the ( probability of reaching each of these 8 positions
-after K-1 steps)/8.<br>
-3) We are dividing by 8 because each of these 8 positions
-has 8 choices and position (x,y) is one of the choices.<br>
-4) For the positions that lie outside the board, we will either
-take their probabilities as 0 or simply neglect it.<br>
-5) Since we need to keep track of the probabilities at each
-position for every number of steps, we need Dynamic
-Programming to solve this problem
+**Algorithm Design**
+Approach 1<br>
+1. Its a brute force approach
+2. Iterate  over  all  number  between  [n,m]  and  checking number is stepping number or not.
+3. Iterate  through  all  digits  of  x  and  compare  difference between value of previous and current digits, if difference >1or  <-1  then  its  not  stepping  number  otherwise  storing  x  in answer.
+4. Print all number in answer which are stepping numbers between n and m.
+<br>
+<br>
+Approach 2<br>
+1. This approach is based on graph traversing bfs.
+2 .We are using the fact that single digit number is stepping number..
+3. Then we are generating graph as follow .
+4. Every node in the graph represents a stepping number. there will be a directed edge from a node U to V if V can be transformed from U.
+5. An adjacent number V can be:  <br>
+     U*10 + lastDigit + 1 (Neighbor A)<br>
+     U*10 + lastDigit – 1 (Neighbor B)<br>
+6. then checking if node value is between n and m. which means this node is required stepping number and storing it into answer array.
+7. Print all number in answer which are stepping numbers between n and m.
 <br>
 <br>
 ---
@@ -111,12 +112,14 @@ Programming to solve this problem
 
 **Time Complexity**
 
-In this method, we are working on n × n elements and there
-are k layers considered.
-<br>
-<br>
-So Time complexity would be O(n^2×k)
-<br>
+Approach 1<br><br>
+For each number, to check that it is stepping number can be checked in some number of operation which is equivalent to constant time. Since we are checking all numbers between n to m therefore execution time is  directly proportional to (m-n)<br>
+So the time complexity will be :  O(m-n)<br><br>
+Approach 2<br><br>
+
+During BFS, once we encounter a number 'x' from the queue which is greater or equal to M, we don't need to push its stepping numbers in the queue as they will obviously again be greater than M. this gives you an upper bound. Now we are creating sort of 9 trees with root [1,9] respectively. <br>
+for each node of the tree the the next child node has a number obtained after a multiplication factor of 10, mean taking jumps in powers of 10, which means a logarithmic sol with an upper bound M. So the number of nodes in the tree has to be log(M) moreover as its a tree number of edges are V-1.<br>
+So the above approach would be log(M)<br><br>
 
 **Space Complexity**
 
@@ -130,7 +133,6 @@ Therefore, Space complexity is O(n^2)
 
 ### References
 
-[1] Wikipedia: Dynamic Programming,
-https://en.wikipedia.org/wiki/Dynamic_programming <br/>
-[2] GeeksforGeeks: Dynamic Programming,
-https://www.geeksforgeeks.org/dynamic-programming/
+[1] 'Queue-Data-Structures', Wikipedia<br>
+[2] 'Breadth First Search', GeeksforGeeks<br>
+[3] Chirag Agarwal, 'Stepping Numbers',GeeksforGeeks,2020<br>
