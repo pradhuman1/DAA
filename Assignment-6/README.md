@@ -91,7 +91,7 @@ Output:
 
 Breadth-first search is an algorithm for traversing or searching tree or graph data structures. It starts at the tree root, and explores all of the neighbor nodes at the present depth prior to moving on to the nodes at the next depth level
 
-**Algorithm Design**
+**Algorithm Design**<br>
 Approach 1<br>
 1. Its a brute force approach
 2. Iterate  over  all  number  between  [n,m]  and  checking number is stepping number or not.
