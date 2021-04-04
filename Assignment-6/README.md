@@ -64,9 +64,8 @@ Input:
 0 0
 Output:
 0.030863
-```
-<br>
-```
+
+
 Approach-2
 Test Case-1
 Input:
@@ -88,6 +87,8 @@ Input:
 0 0
 Output:
 0.030863
+
+
 ```
 ---
 
