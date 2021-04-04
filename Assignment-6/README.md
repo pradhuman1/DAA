@@ -35,8 +35,10 @@ cd Assignment-6
 
 Run the code
 ```
-g++ solution.cpp
-./a.out
+g++ approach1.cpp -o approach1
+g++ approach2.cpp -o approach2
+./approach1
+./approach2
 ```
 ---
 
